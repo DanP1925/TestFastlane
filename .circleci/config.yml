@@ -70,6 +70,7 @@ jobs:
       - *restore_gradle_cache
       - *restore_gems_cache
       - *ruby_dependencies
+      - *chmod_permissions
       - *android_dependencies
       - *save_gradle_cache
       - *save_gems_cache

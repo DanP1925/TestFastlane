@@ -1,8 +1,7 @@
-package com.example.daniel.pruebafastlane
+package com.athelas.pruebafastlane
 
+import com.athelas.pruebafastlane.MainActivity
 import junit.framework.Assert.assertTrue
-import kotlinx.android.synthetic.main.activity_main.*
-import org.junit.Assert
 import org.junit.Test
 
 import org.junit.Before

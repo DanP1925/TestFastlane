@@ -1,16 +1,16 @@
-package com.example.daniel.pruebafastlane
+package com.athelas.pruebafastlane
 
-import android.support.test.InstrumentationRegistry
 import android.support.test.espresso.Espresso.onView
 import android.support.test.espresso.action.ViewActions.click
 import android.support.test.espresso.matcher.ViewMatchers.withId
 import android.support.test.rule.ActivityTestRule
 import android.support.test.runner.AndroidJUnit4
+import com.athelas.pruebafastlane.MainActivity
+import com.athelas.daniel.pruebafastlane.R
 
 import org.junit.Test
 import org.junit.runner.RunWith
 
-import org.junit.Assert.*
 import org.junit.Rule
 
 /**

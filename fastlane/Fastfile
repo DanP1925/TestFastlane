@@ -15,9 +15,33 @@ platform :android do
     # You can also use other beta testing services here
   end
 
+  desc "Assemble Build"
+  lane :assemble_build do |options|
+    properties = {
+      "android.injected.signing.store.file" => "keystore.jks",
+      "android.injected.signing.store.password" => ENV['STORE_PASSWORD'],
+      "android.injected.signing.key.alias" => ENV['KEY_ALIAS'],
+      "android.injected.signing.key.password" => ENV['KEY_PASSWORD'],
+    } if @build_type == "Release"
+
+    gradle(task: "assemble", build_type: @build_type, properties: properties)
+  end
+
+  desc "Assemble Test Application"
+  lane :assemble_test_application do
+    gradle(task: "assembleDebugAndroidTest")
+  end
+
+  desc "Assemble Build and Test Application"
+  lane :assemble do
+    assemble_build
+    assemble_test_application
+  end
+
   desc "Deploy a new version to the Google Play"
-  lane :deploy do
-    gradle(task: "clean assembleRelease")
+  lane :deploy_to_play_store do
+    @build_type = "Release"
+    assemble_build
     upload_to_play_store
   end
 end

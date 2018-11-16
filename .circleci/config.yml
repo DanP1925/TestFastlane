@@ -125,5 +125,5 @@ workflows:
     jobs:
       - test_unit
       - deploy_play_store:
-        requires:
-          - test_unit
+          requires:
+            - test_unit
